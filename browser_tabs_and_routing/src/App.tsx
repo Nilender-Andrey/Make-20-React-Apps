@@ -1,29 +1,22 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React from 'react';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Tab from './components/Tab';
+
+import Header from './components/Header';
+import Routes from './components/Routes';
 
 export default function App() {
   return (
-    <div className="app">
-      <div className="browser">
-        <div className="tabs">
+    <Router>
+      <div className="app">
+        <div className="browser">
+          <Header />
 
-          <Tab>
-            <a href="!#">Home</a>
-          </Tab>
-          <Tab>
-            <a href="!#">About</a>
-          </Tab>
-          <Tab>
-            <a href="!#">Features</a>
-          </Tab>
-
+          <div className="viewport">
+            <Routes />
+          </div>
         </div>
-
-        <div className="viewport">Pages Go Here</div>
       </div>
-    </div>
+    </Router>
   );
 }
