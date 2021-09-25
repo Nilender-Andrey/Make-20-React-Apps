@@ -1,1 +1,1 @@
-https://nilender-andrey.github.io/Make-20-React-Apps/Pomodoro_Timer/index.html
+https://nilender-andrey.github.io/Make-React-Apps/Pomodoro_Timer/index.html
