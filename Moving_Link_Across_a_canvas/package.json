@@ -1,5 +1,6 @@
 {
-  "name": "pointing-poker",
+  "homepage": ".",
+  "name": "moving_link_across_a_canvas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
