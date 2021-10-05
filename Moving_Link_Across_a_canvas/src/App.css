@@ -4,6 +4,14 @@
   box-sizing: border-box;
   font-size: 22px;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('https://i.imgur.com/noNWRPk.png') !important;
+}
+
 #root {
   font-family: 'Indie Flower', cursive;
 
@@ -19,7 +27,7 @@
   align-items: center;
 
   width: 100%;
-  max-width: 1300px;
+
   min-height: 100vh;
   margin: 0 auto;
 }
@@ -40,12 +48,13 @@
 .chakra-button__group .button {
   width: 100px;
 
-  border: 1px solid #276749;
-
   margin-inline-start: 0;
 
   color: #276749;
   font-size: 22px;
+
+  border: 1px solid #276749;
+  outline: none;
 }
 .chakra-button__group .up {
   position: absolute;
