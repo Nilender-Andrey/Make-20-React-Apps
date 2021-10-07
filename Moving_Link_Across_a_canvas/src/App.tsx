@@ -3,12 +3,14 @@ import { Button, ButtonGroup } from '@chakra-ui/react';
 import './App.css';
 import useMovement from './useMovement';
 
+import upImg from './img/XSA2Oom.gif';
+import downImg from './img/JYUB0m3.png';
+import rightImg from './img/GEXD7bk.gif';
+import leftImg from './img/4LGAZ8t.gif';
+
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const linkUpRef = useRef<HTMLImageElement>(null);
-  const linkDownRef = useRef<HTMLImageElement>(null);
-  const linkLeftRef = useRef<HTMLImageElement>(null);
-  const linkRightRef = useRef<HTMLImageElement>(null);
+  const imgUrlRef = useRef('./img/JYUB0m3.png');
 
   const {
     x,
@@ -17,6 +19,7 @@ export default function App() {
     move,
   } = useMovement();
 
+  // начальная загрузка
   useEffect(() => {
     if (canvasRef.current) {
       const context = canvasRef.current.getContext('2d');
@@ -24,12 +27,9 @@ export default function App() {
         context.canvas.height = window.innerHeight;
         context.canvas.width = window.innerWidth;
 
-        // context.fillRect(x, y, 100, 100); // рисует черный квадрат
-
-        if (linkDownRef && linkDownRef.current) {
-          context.drawImage(linkDownRef.current, 0, 0);
-          // присваивает изображение стартовое
-        }
+        const img = new Image();
+        img.src = downImg;
+        img.onload = () => context.drawImage(img, x, y);
       }
     }
   }, []);
@@ -40,24 +40,29 @@ export default function App() {
       if (context) {
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-        let theLinkRef;
-        if (direction === 'up') theLinkRef = linkUpRef;
-        if (direction === 'down') theLinkRef = linkDownRef;
-        if (direction === 'left') theLinkRef = linkLeftRef;
-        if (direction === 'right') theLinkRef = linkRightRef;
+        const img = new Image();
 
-        if (theLinkRef && theLinkRef.current) {
-          context.drawImage(theLinkRef.current, x, y);
+        let src;
+        if (direction === 'up') src = upImg;
+        if (direction === 'down') src = downImg;
+        if (direction === 'left') src = leftImg;
+        if (direction === 'right') src = rightImg;
+        if (src) {
+          img.src = src;
+          if (src === imgUrlRef.current) {
+            context.drawImage(img, x, y);
+          } else {
+            imgUrlRef.current = src;
+            img.onload = () => context.drawImage(img, x, y);
+          }
         }
-
-        // context.fillRect(x, y, 100, 100);
       }
     }
   }, [x, y]);
 
   return (
 
-    <div role="none" className="app">
+    <div className="app">
       <canvas ref={canvasRef} />
 
       <ButtonGroup className="arrows">
@@ -67,12 +72,6 @@ export default function App() {
         <Button className="button right" onClick={() => move('right')} type="button">Right</Button>
       </ButtonGroup>
 
-      <div className="images">
-        <img ref={linkDownRef} src="https://i.imgur.com/JYUB0m3.png" alt="Down" />
-        <img ref={linkRightRef} src="https://i.imgur.com/GEXD7bk.gif" alt="Right" />
-        <img ref={linkUpRef} src="https://i.imgur.com/XSA2Oom.gif" alt="Up" />
-        <img ref={linkLeftRef} src="https://i.imgur.com/4LGAZ8t.gif" alt="Left" />
-      </div>
     </div>
 
   );
