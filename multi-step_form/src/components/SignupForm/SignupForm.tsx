@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useLocation, BrowserRouter as Switch, Route } from 'react-router-dom';
+import {
+  useHistory, useLocation, BrowserRouter as Switch, Route,
+} from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import ProfileForm from './1ProfileForm';
 import SocialForm from './2SocialForm';
@@ -10,7 +12,11 @@ import StepLinks from './StepLinks';
 
 export default function SignupForm() {
   const location = useLocation();
+  const history = useHistory();
 
+  useEffect(() => {
+    history.push('/');
+  }, []);
   return (
     <SignupFormProvider>
       <StepLinks />

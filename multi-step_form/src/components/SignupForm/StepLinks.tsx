@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSignupForm } from './SignupFormContext';
 
 export default function StepLinks() {
@@ -7,8 +6,6 @@ export default function StepLinks() {
 
   const isProfileDone = !!profile.name.length && !!profile.email.length;
   const isSocialDone = !!social.twitter.length && !!social.facebook.length;
-
-  console.log(isProfileDone, isSocialDone);
 
   return (
     <div className="step-links">
