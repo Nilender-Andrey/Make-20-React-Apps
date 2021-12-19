@@ -6,7 +6,7 @@ https://nilender-andrey.github.io/Make-React-Apps/paper_rock_scissors/
 2. Установите зависимости `npm install`  
 3. Запустить `npm start` или собрать приложение `npm run build`  
 
-Typescript Webpack
+Typescript React Webpack
 
 ### Описание:  
 Игра "Камень ножницы бумага" 
