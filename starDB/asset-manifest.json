@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/StarDB/static/css/main.25c2409b.css",
+    "main.js": "/StarDB/static/js/main.5a51ac93.js",
+    "static/media/no_image.jpg": "/StarDB/static/media/no_image.a3239313f497211e7795.jpg",
+    "static/media/star.png": "/StarDB/static/media/star.7546ebc3617be2c937d0.png",
+    "static/media/spinner.svg": "/StarDB/static/media/spinner.59fa33bba465dc26a002e797bc0d22cb.svg",
+    "index.html": "/StarDB/index.html",
+    "main.25c2409b.css.map": "/StarDB/static/css/main.25c2409b.css.map",
+    "main.5a51ac93.js.map": "/StarDB/static/js/main.5a51ac93.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25c2409b.css",
+    "static/js/main.5a51ac93.js"
+  ]
+}
