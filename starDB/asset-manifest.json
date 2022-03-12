@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.25c2409b.css",
-    "main.js": "/static/js/main.47251508.js",
-    "static/media/no_image.jpg": "/static/media/no_image.a3239313f497211e7795.jpg",
-    "static/media/star.png": "/static/media/star.7546ebc3617be2c937d0.png",
-    "static/media/spinner.svg": "/static/media/spinner.59fa33bba465dc26a002e797bc0d22cb.svg",
-    "index.html": "/index.html",
-    "main.25c2409b.css.map": "/static/css/main.25c2409b.css.map",
-    "main.47251508.js.map": "/static/js/main.47251508.js.map"
+    "main.css": "/Make-React-Apps/starDB/static/css/main.25c2409b.css",
+    "main.js": "/Make-React-Apps/starDB/static/js/main.30d37bac.js",
+    "static/media/no_image.jpg": "/Make-React-Apps/starDB/static/media/no_image.a3239313f497211e7795.jpg",
+    "static/media/star.png": "/Make-React-Apps/starDB/static/media/star.7546ebc3617be2c937d0.png",
+    "static/media/spinner.svg": "/Make-React-Apps/starDB/static/media/spinner.59fa33bba465dc26a002e797bc0d22cb.svg",
+    "index.html": "/Make-React-Apps/starDB/index.html",
+    "main.25c2409b.css.map": "/Make-React-Apps/starDB/static/css/main.25c2409b.css.map",
+    "main.30d37bac.js.map": "/Make-React-Apps/starDB/static/js/main.30d37bac.js.map"
   },
   "entrypoints": [
     "static/css/main.25c2409b.css",
-    "static/js/main.47251508.js"
+    "static/js/main.30d37bac.js"
   ]
 }
