@@ -8,4 +8,4 @@
 - SCSS - стили;
 - [Vite](https://vitejs.dev/) - инструмент сборки.
 
-Ссылка посмотреть:
+[Ссылка посмотреть](https://nilender-andrey.github.io/Make-React-Apps/to_do_list/index.html)
