@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create, State, StateCreator, StoreMutatorIdentifier } from 'zustand';
 import { generateId } from '../helpers';
 
 interface Task {
@@ -14,38 +14,64 @@ interface TodoStore {
   removeTask: (id: string) => void;
 }
 
-export const useToDoStore = create<TodoStore>((set, get) => ({
-  tasks: [],
+type localStorageUpdateType = <T extends TodoStore>(
+  f: StateCreator<T, [], []>,
+) => StateCreator<T, [], []>;
 
-  createTask: (title) => {
-    if (title) {
+const localStorageUpdate: localStorageUpdateType = (f) => (set, get, store) => {
+  const newSet: typeof set = (...a) => {
+    set(...a);
+
+    window.localStorage.setItem('tasks', JSON.stringify(get().tasks));
+  };
+  store.setState = newSet;
+
+  return f(newSet, get, store);
+};
+
+function getCurrentState() {
+  try {
+    return JSON.parse(window.localStorage.getItem('tasks') || '[]');
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+export const useToDoStore = create<TodoStore>()(
+  localStorageUpdate((set, get) => ({
+    tasks: getCurrentState(),
+
+    createTask: (title) => {
+      if (title) {
+        const { tasks } = get();
+        const newTask = { id: generateId(), title, createdAt: Date.now() };
+
+        set({
+          tasks: [newTask, ...tasks],
+        });
+      }
+    },
+
+    updateTask: (id, title) => {
+      if (title) {
+        const { tasks } = get();
+
+        set({
+          tasks: tasks.map((task) => ({
+            ...task,
+            title: task.id === id ? title : task.title,
+          })),
+        });
+      }
+    },
+
+    removeTask: (id) => {
       const { tasks } = get();
-      const newTask = { id: generateId(), title, createdAt: Date.now() };
 
       set({
-        tasks: [newTask, ...tasks],
+        tasks: tasks.filter((task) => task.id !== id),
       });
-    }
-  },
-
-  updateTask: (id, title) => {
-    if (title) {
-      const { tasks } = get();
-
-      set({
-        tasks: tasks.map((task) => ({
-          ...task,
-          title: task.id === id ? title : task.title,
-        })),
-      });
-    }
-  },
-
-  removeTask: (id) => {
-    const { tasks } = get();
-
-    set({
-      tasks: tasks.filter((task) => task.id !== id),
-    });
-  },
-}));
+    },
+  })),
+);
