@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 22px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('./img/noNWRPk.png') !important;
+}
+
+#root {
+  font-family: 'Indie Flower', cursive;
+
+  font-size: 50px;
+  color: white;
+}
+
+.app {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.app .arrows {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  width: 320px;
+}
+
+.chakra-button__group .button {
+  width: 100px;
+
+  margin-inline-start: 0;
+
+  color: #276749;
+  font-size: 22px;
+
+  border: 1px solid #276749;
+  outline: none;
+}
+.chakra-button__group .up {
+  position: absolute;
+  top: -65px;
+  left: calc(50% - 50px);
+}
