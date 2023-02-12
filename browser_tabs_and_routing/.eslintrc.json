@@ -1,0 +1,86 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+
+  // разрешает импорты
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  // добовляе NodeJS
+  "globals": {
+    "NodeJS": true
+  },
+
+  "rules": {
+    // максимальная длинна строки
+    "max-len": [
+      "warn",
+      {
+        "code": 80,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+
+    // добовляет расширения tsx, jsx
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    /***********************************************************/
+
+    //отключает ошибку неиспользуемых переменных
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "[I]\\w+"
+      }
+    ],
+    /***********************************************************/
+
+    //Отключает запрет использование переменных до их определения
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    /***********************************************************/
+
+    //разрешает импорты без разширений
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+    /***********************************************************/
+
+    // "react/jsx-props-no-spreading": "off",
+    // "import/prefer-default-export": "off",
+    // "react/jsx-boolean-value": "off",
+    // "react/prop-types": "off",
+    // "react/no-unescaped-entities": "off",
+    // "react/jsx-one-expression-per-line": "off",
+    // "react/jsx-wrap-multilines": "off",
+    // "react/destructuring-assignment": "off"
+  }
+}
